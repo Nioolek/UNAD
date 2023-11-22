@@ -1,0 +1,49 @@
+epochs: 40
+lr: 1e-5
+device: cuda
+
+work_dir: ./work_dirs/unad_pretrain
+
+print_iters: 100
+decay_iters: 4500
+save_iters: 1000
+test_interval: 1000
+
+norm_range_min: -1024.0
+norm_range_max: 3072.0
+trunc_min: -160.0
+trunc_max: 240.0
+result_fig: true
+
+UNAD_model:
+  mid_ch: 96
+  act: leakyrelu
+  pretrain: true
+  pretrain_out_ch: 6
+
+train_dataloader_hook:
+  mode: pretrain
+  load_mode: 0
+  data_root: './npy_img/'
+  test_patient: L506
+  num_workers: 4
+  switch_epochs: [0, ]
+  switch_bs: [8, ]
+  switch_ps: [64, ]
+  switch_pn: [5, ]
+  predict_num: [3, 3]
+
+test_dataloader:
+  mode: pretrain_test
+  load_mode: 0
+  data_root: './npy_img/'
+  test_patient: L506
+  batch_size: 1
+  num_workers: 1
+  patch_n:     # set to None
+  patch_size:  # set to None
+  predict_num: [3, 3]
+
+
+losses:
+  loss_weight: [0.1, 0.3, 1.0, 1.0, 0.3, 0.1]
