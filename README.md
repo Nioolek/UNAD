@@ -8,7 +8,7 @@
   <div>&nbsp;</div>
 </div>
 
-Official repository for **UNAD**: **Un**iversal **A**natomy-initialized Noise **D**istribution Learning Framework Towards Low-dose CT Denoising (ICASSP Submission In Progress).
+Official repository for **UNAD**: **Un**iversal **A**natomy-initialized Noise **D**istribution Learning Framework Towards Low-dose CT Denoising (accepted by ICASSP2024).
 UNAD have achieved state-of-the-art results even without a powerful feature extractor like ViT.
 
 ## 🛠️ Installation
